@@ -1,7 +1,7 @@
 {
   "name": "parcel-project-template",
   "version": "2.0.0",
-  "description": "",
+  "description": "Этот проект был создан при помощи Parcel. Для знакомства и настройки\r дополнительных возможностей [обратись к документации](https://parceljs.org/).",
   "homepage": "https://DemioSan.github.io/goit-js-hw-09",
   "scripts": {
     "start": "parcel src/*.html",
