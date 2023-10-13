@@ -20,7 +20,6 @@
   "dependencies": {
     "flatpickr": "^4.6.13",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.6",
     "validator": "^13.11.0"
   },
   "devDependencies": {
@@ -29,5 +28,6 @@
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead"
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "main": "index.js"
 }
