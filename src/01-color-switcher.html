@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color switcher</title>
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    "
+  >
+    <p style="position: absolute; top: 10px; left: 10px">
+      <a href="index.html">Go back</a>
+    </p>
+
+    <div style="display: flex; align-items: center; gap: 10px">
+      <button
+        type="button"
+        data-start
+        style="font-size: 16px; padding: 10px 20px"
+      >
+        Start
+      </button>
+      <button
+        type="button"
+        data-stop
+        disabled
+        style="font-size: 16px; padding: 10px 20px"
+      >
+        Stop
+      </button>
+    </div>
+
+    <script src="js/01-color-switcher.js" type="module"></script>
+  </body>
+</html>
