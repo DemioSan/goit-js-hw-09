@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let countdownInterval;
 
+  startButton.disabled = true;
+
   const updateTimer = targetDate => {
     const now = new Date().getTime();
     const timeRemaining = targetDate - now;
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
       window.alert('Please choose a date in the future');
-      startButton.disabled = true;
+      startButton.disabled = false;
       return;
     }
 
@@ -63,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedDate = new Date(datetimePicker.value);
         updateTimer(selectedDate);
         countdownInterval = setInterval(() => updateTimer(selectedDate), 1000);
+        startButton.disabled = true;
       });
     }
   });
