@@ -21,6 +21,11 @@ form.addEventListener('submit', async e => {
   const step = parseInt(form.elements.step.value);
   const amount = parseInt(form.elements.amount.value);
 
+  if (step < 0 || delay < 0 || amount <= 0) {
+    alert('Невірні значення step, delay або amount');
+    return;
+  }
+
   for (let i = 0; i < amount; i++) {
     const position = i + 1;
     const currentDelay = delay + i * step;
