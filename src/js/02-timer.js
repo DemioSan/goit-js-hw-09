@@ -22,6 +22,7 @@ function convertMs(ms) {
 document.addEventListener('DOMContentLoaded', () => {
   const datetimePicker = document.getElementById('datetime-picker');
   const startButton = document.querySelector('[data-start]');
+  const resetButton = document.querySelector('[data-reset]');
   const daysValue = document.querySelector('[data-days]');
   const hoursValue = document.querySelector('[data-hours]');
   const minutesValue = document.querySelector('[data-minutes]');
@@ -29,16 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let countdownInterval;
 
+  const resetTimer = () => {
+    clearInterval(countdownInterval);
+    daysValue.textContent = '00';
+    hoursValue.textContent = '00';
+    minutesValue.textContent = '00';
+    secondsValue.textContent = '00';
+    startButton.disabled = false;
+    resetButton.disabled = true;
+    datetimePicker.disabled = false;
+  };
+
   startButton.disabled = true;
+  resetButton.disabled = true;
 
   const updateTimer = targetDate => {
     const now = new Date().getTime();
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-      clearInterval(countdownInterval);
+      resetTimer();
       window.alert('Please choose a date in the future');
-      startButton.disabled = false;
       return;
     }
 
@@ -57,8 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectedDate <= now) {
       window.alert('Please choose a date in the future');
       startButton.disabled = true;
+      resetButton.disabled = true;
     } else {
       startButton.disabled = false;
+      resetButton.disabled = true;
+      datetimePicker.disabled = false;
 
       startButton.addEventListener('click', () => {
         clearInterval(countdownInterval);
@@ -66,6 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTimer(selectedDate);
         countdownInterval = setInterval(() => updateTimer(selectedDate), 1000);
         startButton.disabled = true;
+        resetButton.disabled = false;
+        datetimePicker.disabled = true;
+      });
+
+      resetButton.addEventListener('click', () => {
+        resetTimer();
       });
     }
   });
